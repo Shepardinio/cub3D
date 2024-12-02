@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_and_checking.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajamshid <ajamshid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-yand <mel-yand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 22:58:18 by abdul-rashe       #+#    #+#             */
-/*   Updated: 2024/11/28 13:31:11 by ajamshid         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:30:58 by mel-yand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	check_for_extra_characters_in_map(t_map *map, char **map_temp, int x,
 			{
 				ft_printf("Error\nthere is unwanted charecter in map area or ");
 				ft_printf("more than on starting pos '%c'\n", map_temp[x][y]);
-				free(map_temp);
+				free_table(map_temp);
 				clean_exit(map);
 			}
 			y++;

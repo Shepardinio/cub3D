@@ -6,7 +6,7 @@
 /*   By: mel-yand <mel-yand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:29:28 by ajamshid          #+#    #+#             */
-/*   Updated: 2024/12/02 14:07:46 by mel-yand         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:20:49 by mel-yand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,17 @@ int	assign_to_map(t_map *map, char *line)
 	i = 0;
 	while (line[i] == ' ')
 		i++;
-	if (!map->north_wall && !ft_strncmp(&line[i], "NO", 2))
+	if (!map->north_wall && !ft_strncmp(&line[i], "NO ", 3))
 		map->north_wall = seperate_info(map, &line[i + 3]);
-	else if (!map->south_wall && !ft_strncmp(&line[i], "SO", 2))
+	else if (!map->south_wall && !ft_strncmp(&line[i], "SO ", 3))
 		map->south_wall = seperate_info(map, &line[i + 3]);
-	else if (!map->east_wall && !ft_strncmp(&line[i], "EA", 2))
+	else if (!map->east_wall && !ft_strncmp(&line[i], "EA ", 3))
 		map->east_wall = seperate_info(map, &line[i + 3]);
-	else if (!map->west_wall && !ft_strncmp(&line[i], "WE", 2))
+	else if (!map->west_wall && !ft_strncmp(&line[i], "WE ", 3))
 		map->west_wall = seperate_info(map, &line[i + 3]);
-	else if (!map->ground_color && !ft_strncmp(&line[i], "F", 1))
+	else if (!map->ground_color && !ft_strncmp(&line[i], "F ", 2))
 		map->ground_color = seperate_info(map, &line[i + 2]);
-	else if (!map->sky_color && !ft_strncmp(&line[i], "C", 1))
+	else if (!map->sky_color && !ft_strncmp(&line[i], "C ", 2))
 		map->sky_color = seperate_info(map, &line[i + 2]);
 	else if (set_map_line(map, line, i))
 		return (1);
