@@ -6,7 +6,7 @@
 /*   By: mel-yand <mel-yand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:29:28 by ajamshid          #+#    #+#             */
-/*   Updated: 2024/12/02 14:05:13 by mel-yand         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:07:46 by mel-yand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int	parse_cub_file(t_map *map, char *map_cub)
 	int	fd;
 
 	i = 0;
+	fd = -1;
 	while (map_cub[i])
 		i++;
 	if (i < 5 || ft_strncmp(&map_cub[i - 4], ".cub", 4))
@@ -123,8 +124,6 @@ int	parse_cub_file(t_map *map, char *map_cub)
 	}
 	if (open(map_cub, O_DIRECTORY) == -1)
 		fd = open(map_cub, O_RDONLY);
-	else
-		exit(0);
 	if (fd == -1)
 	{
 		ft_printf("Error\nthere was a problem opening the cub file\n");
