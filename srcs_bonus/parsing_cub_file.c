@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_cub_file.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajamshid <ajamshid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-yand <mel-yand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:29:28 by ajamshid          #+#    #+#             */
-/*   Updated: 2024/11/28 13:24:42 by ajamshid         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:05:26 by mel-yand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,10 @@ int	parse_cub_file(t_map *map, char *map_cub)
 		ft_printf("Error\nplease provide a valide .cub filename or path\n");
 		exit(0);
 	}
-	fd = open(map_cub, O_RDONLY);
+	if (open(map_cub, O_DIRECTORY) == -1)
+		fd = open(map_cub, O_RDONLY);
+	else
+		exit(0);
 	if (fd == -1)
 	{
 		ft_printf("Error\nthere was a problem opening the cub file\n");
@@ -130,6 +133,5 @@ int	parse_cub_file(t_map *map, char *map_cub)
 	extract_from_cub_file(map, fd);
 	check_player_spawning_pos(map);
 	check_if_all_is_set(map);
-	parse_colors(map);
-	return (0);
+	return (parse_colors(map));
 }

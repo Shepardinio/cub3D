@@ -6,7 +6,7 @@
 /*   By: mel-yand <mel-yand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:04:47 by abdul-rashe       #+#    #+#             */
-/*   Updated: 2024/11/28 16:37:35 by mel-yand         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:37:56 by mel-yand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (ft_printf("Error : invalid number argument\n"));
+		return (ft_printf("Error\ninvalid number argument\n"));
 	parse_cub_file(&map, argv[1]);
 	initialize_game_vars(&game, &map);
 	init_mlx_components(&game);
